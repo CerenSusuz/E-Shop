@@ -10,6 +10,19 @@ namespace EShop.DataAccess.Mappings.EF
         public void Configure(EntityTypeBuilder<UserGroup> builder)
         {
             builder.ToTable("UserGroups");
+            builder.HasIndex(x => x.Description);
+            
+            builder.HasData(new UserGroup {
+                Id=1,
+                Description = "Personel"
+            });
+            
+            builder.HasData(new UserGroup {
+                Id=2,
+                Description = "Son kullanıcı"
+            });
+            
+            
         }
     }
 }

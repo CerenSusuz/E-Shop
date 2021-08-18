@@ -1,0 +1,12 @@
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\bin\Debug\net5.0\EShop.Core.deps.json
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\bin\Debug\net5.0\EShop.Core.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\bin\Debug\net5.0\ref\EShop.Core.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\bin\Debug\net5.0\EShop.Core.pdb
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.csproj.AssemblyReference.cache
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.AssemblyInfoInputs.cache
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.AssemblyInfo.cs
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.csproj.CoreCompileInputs.cache
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\ref\EShop.Core.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Core\obj\Debug\net5.0\EShop.Core.pdb

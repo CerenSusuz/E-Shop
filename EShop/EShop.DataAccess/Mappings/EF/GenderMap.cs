@@ -10,6 +10,18 @@ namespace EShop.DataAccess.Mappings.EF
         public void Configure(EntityTypeBuilder<Gender> builder)
         {
             builder.ToTable("Genders");
+            builder.HasIndex(x=>x.Description);
+
+
+            builder.HasData(new Gender {
+                Id=1,
+                Description = "Kadın"
+            });
+            
+            builder.HasData(new Gender {
+                Id=2,
+                Description = "Erkek"
+            });
         }
     }
 }

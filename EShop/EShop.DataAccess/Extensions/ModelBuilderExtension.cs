@@ -39,7 +39,7 @@ namespace EShop.DataAccess.Extensions
                 }
                 else if (property.ClrType == typeof(DateTime) && !property.IsNullable)
                 {
-                    property.SetDefaultValueSql("Convert(Date,GetDate())");
+                    property.SetDefaultValueSql("GetDate()");
                 }
                 else if (property.ClrType == typeof(TimeSpan))
                 {
@@ -61,13 +61,13 @@ namespace EShop.DataAccess.Extensions
                         property.SetMaxLength(30);
                         break;
                     
-                    case "CreateUser":
-                    case "UpdateUser":
+                    case "CreatedUser":
+                    case "UpdatedUser":
                         property.SetMaxLength(61);
                         break;
                     
-                    case "CreateAt":
-                    case "UpdateAt":
+                    case "CreatedAt":
+                    case "UpdatedAt":
                         property.SetDefaultValueSql("GetDate()");
                         break;
 
