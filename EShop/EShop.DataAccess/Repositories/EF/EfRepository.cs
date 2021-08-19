@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -26,10 +25,9 @@ namespace EShop.DataAccess.Repositories.EF
 
         //tüm entities döner
         public IQueryable<TEntity> Table => _entities;
-
+        
         // tabloyu cache almadan ver
         public IQueryable<TEntity> AsNoTracking => _entities.AsNoTracking();
-
         public async Task<bool> AnyAsync(int id)
         {
             var entity = await _entities.FindAsync(id);
@@ -37,7 +35,6 @@ namespace EShop.DataAccess.Repositories.EF
                 _context.Entry(entity).State = EntityState.Detached;
             return entity != null;
         }
-
         public async Task<TEntity> GetAsync(int id)
         {
             var entity = await _entities.FindAsync(id);
@@ -45,7 +42,6 @@ namespace EShop.DataAccess.Repositories.EF
                 _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
-
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> filter)
         {
             var entity = await _entities.FirstOrDefaultAsync(filter);
@@ -53,7 +49,6 @@ namespace EShop.DataAccess.Repositories.EF
                 _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
-
         public async Task InsertAsync(TEntity entity)
         {
             if (entity == null)
@@ -67,7 +62,6 @@ namespace EShop.DataAccess.Repositories.EF
             await _entities.AddAsync(entity);
             await SaveChangesAsync();
         }
-
         public async Task UpdateAsync(TEntity entity)
         {
             if (entity == null)
@@ -85,14 +79,12 @@ namespace EShop.DataAccess.Repositories.EF
             _context.Update(entity);
             await SaveChangesAsync();
         }
-
         public async Task DeleteAsync(TEntity entity)
         {
             if (entity == null) throw new DbNullException(typeof(TEntity).Name);
             _entities.Remove(entity);
             await SaveChangesAsync();
         }
-
         public async Task DeleteRangeAsync(List<TEntity> entities)
         {
             if (!entities.Any())

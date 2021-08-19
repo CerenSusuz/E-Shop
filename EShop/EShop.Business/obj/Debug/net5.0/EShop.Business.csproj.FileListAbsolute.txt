@@ -1,0 +1,17 @@
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.Business.deps.json
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.Business.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\ref\EShop.Business.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.Business.pdb
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.Core.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.DataAccess.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.DataAccess.pdb
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\bin\Debug\net5.0\EShop.Core.pdb
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.csproj.AssemblyReference.cache
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.AssemblyInfoInputs.cache
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.AssemblyInfo.cs
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.csproj.CoreCompileInputs.cache
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.csproj.CopyComplete
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\ref\EShop.Business.dll
+C:\Users\ceren\RiderProjects\E-Shop\EShop\EShop.Business\obj\Debug\net5.0\EShop.Business.pdb
