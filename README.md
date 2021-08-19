@@ -1,3 +1,3 @@
 # E-Shop
 
-Net Core 
+Net 5.0 
