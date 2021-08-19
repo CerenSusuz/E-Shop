@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dXyAKAdySAJI9XXJKDP0vQ/mFh5euN7FfszJbcIyMFShmAXCBFsbOIfW4AkIp4GCUOwWIrXjLPG6cVKxfnfGcw==",
+  "dgSpecHash": "MbHzXsk70ueB3bwIszfJ16WmS92m92jGapzwxrfk72SKO8o/Ede/BZRk8jgJuQpn+rS6lGTO/mFyI/7aObfqBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ceren\\RiderProjects\\E-Shop\\EShop\\EShop.DataAccess\\EShop.DataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ceren\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\entityframeworkcore.commontools\\2.0.2\\entityframeworkcore.commontools.2.0.2.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\jil\\2.15.4\\jil.2.15.4.nupkg.sha512",
@@ -77,7 +78,7 @@
     "C:\\Users\\ceren\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.private.uri\\4.3.2\\system.private.uri.4.3.2.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\ceren\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\ceren\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
