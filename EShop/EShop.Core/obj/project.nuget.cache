@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dZAB/N+/yjRQOahH7PXGPkjKDZxUxFSZt7bidKhkftdUe8GzgFzpAxXrpmQxhaLdV5Hce4ow/GKC01SMD2sLgQ==",
+  "dgSpecHash": "qvIcOQAoyDRCTfNkkUu1LjXtqeVQ0xELt212VRqZ7LQCQQpIEfVEdrm3n1ifUrLSTaXeI7SBoNFIe7csOW7EyQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ceren\\RiderProjects\\E-Shop\\EShop\\EShop.Core\\EShop.Core.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\ceren\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.9\\microsoft.entityframeworkcore.5.0.9.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.9\\microsoft.entityframeworkcore.abstractions.5.0.9.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.9\\microsoft.entityframeworkcore.analyzers.5.0.9.nupkg.sha512",
+    "C:\\Users\\ceren\\.nuget\\packages\\microsoft.entityframeworkcore.dynamiclinq\\5.2.12\\microsoft.entityframeworkcore.dynamiclinq.5.2.12.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.9\\microsoft.entityframeworkcore.relational.5.0.9.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.9\\microsoft.entityframeworkcore.sqlserver.5.0.9.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
@@ -56,6 +57,7 @@
     "C:\\Users\\ceren\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\ceren\\.nuget\\packages\\system.linq.dynamic.core\\1.2.12\\system.linq.dynamic.core.1.2.12.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\ceren\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",

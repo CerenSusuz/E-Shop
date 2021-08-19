@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EShop.Business.Abstract;
 using EShop.Business.Models;
 using EShop.Business.Repositories;
+using EShop.Core.Models;
 using EShop.DataAccess.Entities;
 using EShop.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +23,9 @@ namespace EShop.Business.Concrete
             _mapper = mapper;
         }
         
-        public async Task<List<GendersDto>> GetAllAsync()
+        public async Task<List<GendersDto>> GetAllAsync(Filter filter)
         {
             var entities = await _repository.AsNoTracking.ToListAsync();
-            // içindeki entities GendersDto tipinde çevir
             return _mapper.Map<List<GendersDto>>(entities);
         }
     }
