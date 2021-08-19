@@ -1,5 +1,4 @@
-﻿using System;
-using EShop.Core.Signatures;
+﻿using EShop.Core.Signatures;
 
 namespace EShop.DataAccess.Entities
 {

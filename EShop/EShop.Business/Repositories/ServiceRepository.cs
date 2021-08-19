@@ -3,10 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EShop.Core.Signatures;
-using EShop.DataAccess.Entities;
 using EShop.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 namespace EShop.Business.Repositories
 {

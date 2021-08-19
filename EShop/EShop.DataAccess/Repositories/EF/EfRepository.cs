@@ -69,7 +69,7 @@ namespace EShop.DataAccess.Repositories.EF
 
             var oldEntity = await GetAsync(entity.Id);
             if (oldEntity == null)
-                throw new DbNullException("Old " + typeof(TEntity).Name);
+                throw new DbNullException(entity.Id + "id is not found for " + typeof(TEntity).Name);
 
             entity.CreatedAt = oldEntity.CreatedAt;
             entity.CreatedUser = oldEntity.CreatedUser;
