@@ -8,4 +8,8 @@
       <ProjectReference Include="..\EShop.DataAccess\EShop.DataAccess.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Concrete" />
+    </ItemGroup>
+
 </Project>
