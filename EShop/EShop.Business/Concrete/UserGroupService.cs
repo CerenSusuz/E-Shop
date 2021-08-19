@@ -10,40 +10,39 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Business.Concrete
 {
-    public class GenderService : IGenderService
+    public class UserGroupService : IUserGroupService
     {
-        private readonly IRepository<Gender> _repository;
+        private readonly IRepository<UserGroup> _repository;
         private readonly IMapper _mapper;
 
-        public GenderService(IRepository<Gender> repository,IMapper mapper)
+        public UserGroupService(IRepository<UserGroup> repository,IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
         
-        public async Task<List<GendersDto>> GetAllAsync()
+        public async Task<List<UserGroupsDto>> GetAllAsync()
         {
             var entities = await _repository.AsNoTracking.ToListAsync();
-            // içindeki entities GendersDto tipinde çevir
-            return _mapper.Map<List<GendersDto>>(entities);
+            return _mapper.Map<List<UserGroupsDto>>(entities);
         }
 
-        public async Task<GenderDto> GetAsync(int id)
+        public async Task<UserGroupDto> GetAsync(int id)
         {
             var entity = await _repository.GetAsync(id);
-            return _mapper.Map<GenderDto>(entity);
+            return _mapper.Map<UserGroupDto>(entity);
         }
 
-        public async Task<int> InsertAsync(GenderDto dto)
+        public async Task<int> InsertAsync(UserGroupDto dto)
         {
-            var entity = _mapper.Map<Gender>(dto);
+            var entity = _mapper.Map<UserGroup>(dto);
             await _repository.InsertAsync(entity);
             return entity.Id;
         }
 
-        public async Task UpdateAsync(int id, GenderDto dto)
+        public async Task UpdateAsync(int id, UserGroupDto dto)
         {
-            var entity = _mapper.Map<Gender>(dto);
+            var entity = _mapper.Map<UserGroup>(dto);
             entity.Id = id;
             await _repository.UpdateAsync(entity);
         }

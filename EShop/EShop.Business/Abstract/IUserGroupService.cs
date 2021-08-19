@@ -4,12 +4,12 @@ using EShop.Business.Models;
 
 namespace EShop.Business.Abstract
 {
-    public interface IGenderService
+    public interface IUserGroupService
     {
-        Task<List<GendersDto>> GetAllAsync();
-        Task<GenderDto> GetAsync(int id);
-        Task<int> InsertAsync(GenderDto dto);
-        Task UpdateAsync(int id, GenderDto dto);
+        Task<List<UserGroupsDto>> GetAllAsync();
+        Task<UserGroupDto> GetAsync(int id);
+        Task<int> InsertAsync(UserGroupDto dto);
+        Task UpdateAsync(int id, UserGroupDto dto);
         Task DeleteAsync(int id);
         Task DeleteRangeAsync(List<int> listOfId);
         Task RemoveCacheAsync();
