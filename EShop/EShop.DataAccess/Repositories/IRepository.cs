@@ -21,6 +21,13 @@ namespace EShop.DataAccess.Repositories
         IQueryable<TEntity> AsNoTracking { get; }
         
         /// <summary>
+        /// Any 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<bool> AnyAsync(int id);
+        
+        /// <summary>
         ///  Get Entity by Id
         /// </summary>
         /// <param name="id"></param>

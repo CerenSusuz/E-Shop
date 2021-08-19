@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using EShop.Core.Exceptions;
 using EShop.Core.Signatures;
 using EShop.DataAccess.Contexts.EF;
 using Microsoft.EntityFrameworkCore;
+using DbException = EShop.Core.Exceptions.DbException;
 
 namespace EShop.DataAccess.Repositories.EF
 {
     public class EfRepository<TEntity> : IRepository<TEntity>
-        where TEntity:class,IBaseEntity, new()
+        where TEntity : class, IBaseEntity, new()
     {
         private readonly EShopContext _context;
         private readonly DbSet<TEntity> _entities;
@@ -23,9 +26,17 @@ namespace EShop.DataAccess.Repositories.EF
 
         //tüm entities döner
         public IQueryable<TEntity> Table => _entities;
-        
+
         // tabloyu cache almadan ver
         public IQueryable<TEntity> AsNoTracking => _entities.AsNoTracking();
+
+        public async Task<bool> AnyAsync(int id)
+        {
+            var entity = await _entities.FindAsync(id);
+            if (entity != null)
+                _context.Entry(entity).State = EntityState.Detached;
+            return entity != null;
+        }
 
         public async Task<TEntity> GetAsync(int id)
         {
@@ -37,27 +48,85 @@ namespace EShop.DataAccess.Repositories.EF
 
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> filter)
         {
-            throw new NotImplementedException();
+            var entity = await _entities.FirstOrDefaultAsync(filter);
+            if (entity != null)
+                _context.Entry(entity).State = EntityState.Detached;
+            return entity;
         }
 
         public async Task InsertAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+                throw new DbNullException(typeof(TEntity).Name);
+
+            entity.CreatedUser = "";
+            entity.UpdatedUser = "";
+            entity.CreatedAt = DateTime.Now;
+            entity.UpdatedAt = DateTime.Now;
+
+            await _entities.AddAsync(entity);
+            await SaveChangesAsync();
         }
 
         public async Task UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+                throw new DbNullException(typeof(TEntity).Name);
+
+            var oldEntity = await GetAsync(entity.Id);
+            if (oldEntity == null)
+                throw new DbNullException("Old " + typeof(TEntity).Name);
+
+            entity.CreatedAt = oldEntity.CreatedAt;
+            entity.CreatedUser = oldEntity.CreatedUser;
+            entity.UpdatedAt = DateTime.Now;
+            entity.UpdatedUser = "";
+
+            _context.Update(entity);
+            await SaveChangesAsync();
         }
 
         public async Task DeleteAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            if (entity == null) throw new DbNullException(typeof(TEntity).Name);
+            _entities.Remove(entity);
+            await SaveChangesAsync();
         }
 
         public async Task DeleteRangeAsync(List<TEntity> entities)
         {
-            throw new NotImplementedException();
+            if (!entities.Any())
+                throw new DbNullException(typeof(TEntity).Name);
+
+            foreach (var entity in entities)
+            {
+                //_context.Entry(entity).State = EntityState.Detached;
+                _entities.Remove(entity);
+            }
+
+            await SaveChangesAsync();
         }
+
+        private async Task SaveChangesAsync()
+        {
+            try
+            {
+                await _context.SaveChangesAsync();
+                _context.ChangeTracker.Entries().ToList().ForEach(x => { x.State = EntityState.Detached; });
+            }
+            catch (DbUpdateException e)
+            {
+                throw new DbException(GetFullError(e));
+            }
+            catch (Exception e)
+            {
+                throw new DbException(GetFullError(e));
+            }
+        }
+        private string GetFullError(Exception e)
+                {
+                    _context.ChangeTracker.Entries().ToList().ForEach(x => { x.State = EntityState.Detached; });
+                    return e.ToString();
+                }
     }
 }
