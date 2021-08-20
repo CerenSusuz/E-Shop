@@ -4,6 +4,8 @@ using EShop.Business.Abstract;
 using EShop.Business.Concrete;
 using EShop.Business.Installers.Profiles;
 using EShop.Business.Repositories;
+using EShop.Core.Plugins.Caching;
+using EShop.Core.Plugins.Caching.Redis;
 using EShop.DataAccess.Contexts.EF;
 using EShop.DataAccess.Repositories;
 using EShop.DataAccess.Repositories.EF;
@@ -42,6 +44,17 @@ namespace EShop.Api
                 new MapperConfiguration(x =>
                     x.AddProfile(new AutoMapperProfile()))
                     .CreateMapper());
+            
+            
+            services.AddSingleton<IRedisServer, RedisServer>();
+            services.AddSingleton<ICacheService, RedisCacheService>();
+            var opt = new RedisOption
+            {
+                InstanceName = "EShop.Api",
+                ConnectionString = "localhost:6376,ssl=False",
+                AbsoluteExpiration = 60
+            };
+            services.AddSingleton(opt);
             
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "EShop.Api", Version = "v1"}); });

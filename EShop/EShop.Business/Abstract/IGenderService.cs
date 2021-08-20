@@ -8,7 +8,7 @@ namespace EShop.Business.Abstract
 {
     public interface IGenderService : IServiceRepository<GenderDto>
     {
-        Task<List<GendersDto>> GetAllAsync(Filter filter);
+        Task<PagedList<GendersDto>> GetAllAsync(Filter filter);
 
     }
 }

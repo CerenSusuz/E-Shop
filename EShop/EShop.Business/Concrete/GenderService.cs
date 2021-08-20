@@ -5,6 +5,7 @@ using AutoMapper;
 using EShop.Business.Abstract;
 using EShop.Business.Models;
 using EShop.Business.Repositories;
+using EShop.Core.Extensions;
 using EShop.Core.Models;
 using EShop.DataAccess.Entities;
 using EShop.DataAccess.Repositories;
@@ -23,10 +24,12 @@ namespace EShop.Business.Concrete
             _mapper = mapper;
         }
         
-        public async Task<List<GendersDto>> GetAllAsync(Filter filter)
+        public async Task<PagedList<GendersDto>> GetAllAsync(Filter filter)
         {
-            var entities = await _repository.AsNoTracking.ToListAsync();
-            return _mapper.Map<List<GendersDto>>(entities);
+            return await Task.Run(() =>
+                _repository.AsNoTracking.Filter(filter).ToPagedList<Gender, GendersDto>(filter, _mapper)
+            );
+           
         }
     }
 }
