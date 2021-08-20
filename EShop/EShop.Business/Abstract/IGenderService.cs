@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using EShop.Business.Models;
 using EShop.Business.Repositories;
 using EShop.Core.Models;

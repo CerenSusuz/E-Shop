@@ -1,6 +1,8 @@
-﻿namespace EShop.Business.Models
+﻿using EShop.Core.Signatures;
+
+namespace EShop.Business.Models
 {
-    public class UserGroupsDto
+    public class UserGroupsDto : IBaseListDto
     {
         public int Id { get; set; }
         public string Description { get; set; }

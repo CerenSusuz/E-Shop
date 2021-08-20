@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using EShop.Business.Abstract;
 using EShop.Business.Models;
 using EShop.Business.Repositories;
+using EShop.Business.Validators;
+using EShop.Core.Aspects.CacheAspect;
+using EShop.Core.Aspects.Validation;
 using EShop.Core.Extensions;
 using EShop.Core.Models;
 using EShop.DataAccess.Entities;
 using EShop.DataAccess.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Business.Concrete
 {
+    [ValidationAspect(typeof(GenderValidator))]
     public class GenderService :ServiceRepository<Gender,GenderDto>, IGenderService
     {
         private readonly IRepository<Gender> _repository;
@@ -24,12 +25,10 @@ namespace EShop.Business.Concrete
             _mapper = mapper;
         }
         
+        [CacheAspect]
         public async Task<PagedList<GendersDto>> GetAllAsync(Filter filter)
         {
-            return await Task.Run(() =>
-                _repository.AsNoTracking.Filter(filter).ToPagedList<Gender, GendersDto>(filter, _mapper)
-            );
-           
+            return await Task.Run(() => _repository.AsNoTracking.Filter(filter).ToPagedList<Gender, GendersDto>(filter, _mapper));
         }
     }
 }

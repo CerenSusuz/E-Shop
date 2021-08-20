@@ -79,5 +79,14 @@ namespace EShop.Api.Repository
             await _service.DeleteRangeAsync(listOfId);
             return StatusCode(204);
         }
+        
+        [HttpPost("RemoveCache")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public virtual async Task<IActionResult> RemoveCache()
+        {
+            await _service.RemoveCacheAsync();
+            return StatusCode(204);
+        }
     }
 }

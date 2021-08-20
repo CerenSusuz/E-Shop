@@ -24,6 +24,7 @@ namespace EShop.DataAccess.Mappings.EF
                 Gsm = "5541172005",
                 IsSuperVisor = true,
                 UserGroupId = 1,
+                GenderId=1,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 CreatedUser = "Migration"

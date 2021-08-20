@@ -5,6 +5,7 @@ namespace EShop.Core.Extensions
 {
     public static class JsonExtensions
     {
+        // stringe çeviren
         public static string ToJson(this object source)
         {
             return JsonConvert.SerializeObject(source, new JsonSerializerSettings

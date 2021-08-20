@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using EShop.Core.Aspects.CacheAspect;
 using EShop.Core.Signatures;
 using EShop.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -21,12 +22,14 @@ namespace EShop.Business.Repositories
             _mapper = mapper;
         }
 
+        [CacheAspect]
         public virtual async Task<TDto> GetAsync(int id)
         {
             var entity = await _repository.GetAsync(id);
             return _mapper.Map<TDto>(entity);
         }
 
+        [RemoveCacheAspect]
         public virtual async Task<int> InsertAsync(TDto dto)
         {
             var entity = _mapper.Map<TEntity>(dto);
@@ -34,6 +37,7 @@ namespace EShop.Business.Repositories
             return entity.Id;
         }
 
+        [RemoveCacheAspect]
         public virtual async Task UpdateAsync(int id, TDto dto)
         {
             var entity = _mapper.Map<TEntity>(dto);
@@ -41,12 +45,14 @@ namespace EShop.Business.Repositories
             await _repository.UpdateAsync(entity);
         }
 
+        [RemoveCacheAspect]
         public virtual async Task DeleteAsync(int id)
         {
             var entity = await _repository.GetAsync(id);
             await _repository.DeleteAsync(entity);
         }
 
+        [RemoveCacheAspect]
         public virtual async Task DeleteRangeAsync(List<int> listOfId)
         {
             var entities = await _repository.AsNoTracking.Where(x => listOfId.Contains(x.Id)).ToListAsync();

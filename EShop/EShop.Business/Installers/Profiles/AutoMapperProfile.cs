@@ -13,6 +13,11 @@ namespace EShop.Business.Installers.Profiles
 
             CreateMap<UserGroup, UserGroupsDto>();
             CreateMap<UserGroup, UserGroupDto>().ReverseMap();
+            
+            CreateMap<Account, AccountsDto>()
+                .ForMember(d => d.UserGroup, i => i.MapFrom(x => x.UserGroup.Description))
+                .ForMember(d => d.Gender, i => i.MapFrom(x => x.Gender.Description ?? ""));
+            CreateMap<Account, AccountDto>().ReverseMap();
 
         }
     }

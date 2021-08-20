@@ -6,6 +6,7 @@ using EShop.Business.Installers.Profiles;
 using EShop.Business.Repositories;
 using EShop.Core.Plugins.Caching;
 using EShop.Core.Plugins.Caching.Redis;
+using EShop.Core.Tools;
 using EShop.DataAccess.Contexts.EF;
 using EShop.DataAccess.Repositories;
 using EShop.DataAccess.Repositories.EF;
@@ -39,7 +40,8 @@ namespace EShop.Api
             services.AddSingleton(typeof(IServiceRepository<>), typeof(ServiceRepository<,>));
             services.AddSingleton<IGenderService, GenderService>();
             services.AddSingleton<IUserGroupService, UserGroupService>();
-
+            services.AddSingleton<IAccountService, AccountService>();
+            
             services.AddSingleton(
                 new MapperConfiguration(x =>
                     x.AddProfile(new AutoMapperProfile()))
@@ -55,9 +57,10 @@ namespace EShop.Api
                 AbsoluteExpiration = 60
             };
             services.AddSingleton(opt);
-            
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "EShop.Api", Version = "v1"}); });
+            
+            ServiceTool.Create(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
