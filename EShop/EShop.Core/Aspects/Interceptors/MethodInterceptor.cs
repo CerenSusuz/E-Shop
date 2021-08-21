@@ -1,7 +1,6 @@
 ﻿using System;
 using Castle.DynamicProxy;
 using EShop.Core.Exceptions;
-using EShop.Core.Interceptors;
 
 namespace EShop.Core.Aspects.Interceptors
 {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EShop.DataAccess.Migrations
 {
     [DbContext(typeof(EShopContext))]
-    [Migration("20210818200127_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210821092750_dbCreate")]
+    partial class dbCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,7 +88,9 @@ namespace EShop.DataAccess.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
 
                     b.Property<string>("UpdatedUser")
                         .IsRequired()
@@ -123,12 +125,13 @@ namespace EShop.DataAccess.Migrations
                             CreatedUser = "Migration",
                             Email = "ceren199704@hotmail.com",
                             FirstName = "Ceren",
+                            GenderId = 1,
                             Gsm = "5541172005",
                             IsBlocked = false,
                             IsSuperVisor = true,
                             LastName = "Susuz",
-                            PasswordHash = new byte[] { 243, 83, 140, 162, 174, 101, 76, 241, 76, 246, 75, 191, 112, 92, 234, 186, 45, 178, 46, 6, 93, 24, 186, 149, 72, 252, 84, 252, 226, 30, 81, 147, 146, 81, 51, 200, 44, 88, 149, 1, 200, 183, 178, 164, 157, 100, 56, 60, 153, 188, 164, 105, 93, 35, 138, 140, 41, 138, 61, 197, 198, 114, 39, 133 },
-                            PasswordSalt = new byte[] { 68, 227, 84, 99, 222, 138, 239, 184, 86, 10, 31, 172, 206, 182, 73, 251, 212, 52, 55, 214, 172, 130, 70, 119, 4, 60, 139, 34, 72, 150, 111, 208, 238, 119, 56, 116, 137, 140, 70, 65, 157, 205, 174, 228, 213, 166, 12, 80, 0, 166, 32, 165, 182, 72, 79, 93, 23, 84, 48, 40, 54, 245, 157, 82, 25, 110, 125, 220, 193, 247, 171, 53, 194, 81, 174, 113, 46, 172, 118, 42, 236, 111, 142, 133, 66, 218, 250, 149, 137, 197, 244, 72, 159, 28, 96, 90, 179, 214, 96, 76, 224, 104, 235, 64, 130, 217, 100, 245, 98, 150, 170, 41, 126, 191, 203, 209, 63, 132, 78, 110, 8, 255, 131, 74, 239, 121, 88, 216 },
+                            PasswordHash = new byte[] { 106, 7, 4, 40, 14, 106, 76, 13, 10, 74, 9, 235, 176, 182, 181, 101, 36, 237, 120, 4, 20, 68, 4, 153, 237, 154, 1, 91, 4, 4, 153, 177, 194, 7, 221, 67, 66, 105, 80, 50, 223, 221, 167, 211, 75, 238, 15, 13, 205, 110, 14, 148, 99, 236, 241, 216, 190, 191, 164, 84, 19, 23, 5, 151 },
+                            PasswordSalt = new byte[] { 96, 87, 101, 83, 135, 232, 141, 13, 111, 192, 56, 249, 125, 79, 14, 148, 231, 146, 96, 222, 38, 187, 169, 72, 71, 211, 247, 146, 211, 18, 2, 25, 174, 27, 67, 247, 35, 247, 43, 29, 187, 225, 115, 98, 71, 42, 10, 185, 87, 55, 164, 30, 99, 136, 245, 111, 219, 15, 58, 99, 235, 160, 13, 39, 78, 202, 164, 184, 72, 40, 211, 40, 32, 175, 23, 182, 61, 100, 226, 218, 159, 11, 159, 81, 161, 68, 197, 248, 253, 131, 22, 143, 156, 249, 222, 53, 230, 93, 169, 145, 153, 81, 222, 185, 59, 189, 49, 91, 228, 136, 26, 35, 27, 217, 149, 91, 55, 199, 223, 37, 145, 28, 169, 96, 40, 131, 210, 179 },
                             UserGroupId = 1
                         });
                 });
@@ -165,7 +168,9 @@ namespace EShop.DataAccess.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
 
                     b.Property<string>("UpdatedUser")
                         .IsRequired()
@@ -228,7 +233,7 @@ namespace EShop.DataAccess.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GetDate()");
@@ -252,16 +257,14 @@ namespace EShop.DataAccess.Migrations
                             Id = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Personel",
-                            IsBlocked = false,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            IsBlocked = false
                         },
                         new
                         {
                             Id = 2,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Son kullanıcı",
-                            IsBlocked = false,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            IsBlocked = false
                         });
                 });
 
